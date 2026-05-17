@@ -1,5 +1,6 @@
 # Kimi Translator & Grammar Correction
 *this page is mostly written by Kimi(K2.6)*
+
 A lightweight, multiingual translation and grammar correction interface powered by [Moonshot AI (Kimi)](https://www.moonshot.cn). Deployed on Cloudflare Pages with a single-file backend.
 
 [中文](#功能) | [English](#features)
@@ -16,8 +17,8 @@ A lightweight, multiingual translation and grammar correction interface powered 
 
 ## 页面截图
 
-![日间模式](screenshot-light.jpg)
-![夜间模式](screenshot-dark.jpg)
+![日间模式](screenshot_light.jpg)
+![夜间模式](screenshot_dark.jpg)
 
 ## 技术栈 / Tech Stack
 
