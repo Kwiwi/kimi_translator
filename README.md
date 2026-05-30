@@ -1,40 +1,88 @@
-# Kimi Translator & Grammar Correction
+<details>
+<summary>中文版</summary>
 
-> *This page is mostly written by Kimi(K2.6) and fine-tuned by Claude(Sonnet 4.6)*
-
-A lightweight, bilingual translation and grammar correction interface powered by [Moonshot AI (Kimi)](https://www.moonshot.cn). Deployed on Cloudflare Pages with a single-file backend.
-
----
-
-[**中文**](#功能) · [**English**](#features)
+两个功能：多语翻译 和 语法纠错，详见下文。
+Moonshot API+Cloudflare Pages实现的。
+我认为最重要的是可以直接写提示词要求怎么翻译/着重检查什么语法。
+~~虽然说和自己打开Kimi app问没多大区别~~ 
 
 ---
 
-## 功能
-
-- **翻译**：中译英，三种语气预设（随意 / 自然 / 正式），支持自定义指令
-- **语法纠错**：修正语法、拼写、标点，同时保留原有语气与风格
-- **双语界面**：中文 / English 一键切换
-- **夜间模式**：☀️/🌙 切换，偏好自动保存
-- **响应式设计**：手机和桌面均可正常使用
-
-## Features
-
-- **Translate**: Chinese → English with three tone presets (Casual / Natural / Formal), plus editable custom instructions
-- **Grammar Check**: Corrects grammar, spelling, and punctuation while preserving tone and style
-- **Bilingual UI**: Chinese / English toggle
-- **Dark Mode**: ☀️/🌙 toggle with localStorage persistence
-- **Responsive**: Works on mobile and desktop
+`05/30/2026更新：增加了流式输出和优化了语法纠错过于苛刻的问题`
 
 ---
 
-## 页面截图 / Screenshots
+### 功能
 
-| ☀️ 日间模式 | 🌙 夜间模式 |
+- 翻译：默认中译英，翻译成其他语言需要自己在自定义要求那里指定。预设有三种语气：随意 / 自然 / 正式 
+- 语法纠错：修正语法和拼写，同时保留原有语气与风格。也可以指定要求。
+
+还有双语界面、夜间模式、响应式界面、流式输出什么的
+
+</details>
+
+---
+
+Two main features: multilingual translation and grammar correction. Check the details below.
+
+Built using Moonshot API and Cloudflare Pages.
+
+I think the key thing is you can just write prompts to specify exactly how you want things translated or what grammar to focus on.
+
+~~Though it’s not that different from just opening the Kimi app and asking~~
+
+---
+
+`May 30, 2026 update: Added streaming output and fixed the grammar checker—it was getting way too picky.`
+
+---
+
+### Features
+
+Translation: It defaults to Chinese-to-English, but you can specify other languages in the custom settings if you want. There are three preset tones to pick from: casual, natural, and formal.
+
+Grammar Check: Fixes up grammar and spelling while keeping the original tone and style. You can also throw in specific requests if you need.
+
+And there's bilingual interface, dark mode, responsive design, streaming output,etc.
+
+---
+
+### Screenshots/页面截图
+
+| ☀️ | 🌙 |
 |:-----------:|:-----------:|
-| ![日间模式](screenshot_light.jpg) | ![夜间模式](screenshot_dark.jpg) |
+| ![☀️](screenshot_light.jpg) | ![🌙](screenshot_dark.jpg) |
 
 ---
+
+Personal hobby project by a high schooler. There may be some bugs.
+
+高中生个人小项目，可能有 bug。
+
+---
+
+### License
+
+MIT License
+MIT协议
+
+---
+
+### Credits/鸣谢
+Kimi K2.6 + K2.5
+GPT-5.5
+Claude Sonnet 4.6
+
+---
+<details>
+<summary>deployment guide/部署指南</summary>
+
+`Written by Kimi—I didn't feel like editing it`
+`A deployment guide by Kimi, written specifically for beginners`
+
+`Kimi写的——我懒得改了`
+`Kimi写的部署指南，专门给新手看的`
+
 
 ## 技术栈 / Tech Stack
 
@@ -44,7 +92,6 @@ A lightweight, bilingual translation and grammar correction interface powered by
 | 后端 / Backend | Cloudflare Pages `_worker.js` |
 | AI 接口 / AI API | Moonshot Kimi API (`kimi-k2.5`) |
 
----
 
 ## 部署 / Deployment
 
@@ -69,7 +116,7 @@ Pages Project → Settings → Environment variables:
 
 | 变量 / Variable | 值 / Value |
 |:---:|:---:|
-| `KIMI_API_KEY` | 你的 Moonshot API 密钥，以 `sk-` 开头 / Your Moonshot API key (starts with `sk-`) |
+| `KIMI_API_KEY` | 你的 Moonshot API 密钥，以 `sk-`  开头 / Your Moonshot API key (starts with `sk-`) |
 
 ### 4. 设置兼容性日期 / Set Compatibility Date
 
@@ -93,39 +140,4 @@ https://your-project.pages.dev/translator.html
 
 Open `translator.html` directly in browser. Backend calls will fail without `_worker.js`, but the UI works fine.
 
----
-
-## 提示词工程 / Prompt Engineering
-
-> 想直接看提示词的话，翻 `_worker.js` 就行。
-> Honestly, you can just look in `_worker.js` yourself.
-
-系统提示词的目标是输出**地道、自然的母语级文本** / System prompts are designed for **idiomatic, native-level output**:
-
-- **翻译 / Translation**：强调自然语感，而非逐字翻译 / Emphasizes natural tone over literal translation
-- **语法纠错 / Grammar**：修正错误的同时保留俚语、幽默感和刻意的表达方式 / Preserves slang, humor, and intentional awkwardness while fixing errors
-
-用户可实时编辑自定义指令，无需修改代码。/ Editable user prompts allow real-time style adjustments without code changes.
-
----
-
-## 其他 / Notes
-
-高中生个人小项目，可能有 bug，欢迎提 issue。
-
-A personal hobby project by a high schooler. Bugs may exist — feel free to open an issue.
-
----
-
-## License
-
-MIT License — see [LICENSE](./LICENSE) for details.
-
----
-
-## Credits
-
-- Powered by [Moonshot AI (Kimi)](https://www.moonshot.cn)
-- Interface design by user request
-- System prompt written by ChatGPT (GPT-5.5-Instant)
-- Built for Cloudflare Pages
+</details>
